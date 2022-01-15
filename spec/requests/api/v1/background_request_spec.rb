@@ -18,5 +18,6 @@ describe "Background image API" do
     expect(result.first[:attributes][:image]).to have_key(:credit)
     expect(result.first[:attributes][:image][:credit]).to_not have_key(:username)
     expect(result.first[:attributes][:image][:credit]).to have_key(:author)
+    expect(result.first[:attributes][:image][:credit][:hosted_on]).to eq('Unsplash')
   end
 end
