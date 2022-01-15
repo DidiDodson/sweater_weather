@@ -5,6 +5,16 @@ class SearchFacade
       long = MapService.locations(location)[:latLng][:lng]
 
       current = WeatherService.get_weather(lat, long)
+
+      Forecast.new(current)
+    end
+
+    def find_images(term)
+      results = BackgroundService.images(term)[:results]
+
+      results.map do |result|
+        Background.new(result)
+      end
     end
   end
 end
