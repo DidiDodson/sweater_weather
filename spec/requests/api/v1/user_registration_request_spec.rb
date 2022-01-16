@@ -1,18 +1,12 @@
 require 'rails_helper'
 
 describe "User API" do
-  before :each do
-    @header = {
-      "Content-Type": "application/json"
-    }
-  end
-
   it "happy path - creates a user" do
     params = {email: 'shiho@test.com',
               password: 'ABc123',
               password_confirmation: 'ABc123'}
 
-    post "/api/v1/users", headers: @header, params: params.to_json
+    post "/api/v1/users", headers: {"Content-Type": "application/json"}, params: params.to_json
 
     expect(response).to be_successful
     expect(response.status).to eq(201)
@@ -29,7 +23,7 @@ describe "User API" do
               password: 'ABc123',
               password_confirmation: 'ABc123'}
 
-    post "/api/v1/users", headers: @header, params: params.to_json
+    post "/api/v1/users", headers: {"Content-Type": "application/json"}, params: params.to_json
 
     expect(response).to_not be_successful
     expect(response.status).to eq(403)
@@ -42,7 +36,7 @@ describe "User API" do
               password: 'ABc123',
               password_confirmation: 'ABc123'}
 
-    post "/api/v1/users", headers: @header, params: params.to_json
+    post "/api/v1/users", headers: {"Content-Type": "application/json"}, params: params.to_json
 
     expect(response).to_not be_successful
     expect(response.status).to eq(403)
@@ -53,7 +47,7 @@ describe "User API" do
               password: 'ABc12',
               password_confirmation: 'ABc123'}
 
-    post "/api/v1/users", headers: @header, params: params.to_json
+    post "/api/v1/users", headers: {"Content-Type": "application/json"}, params: params.to_json
 
     expect(response).to_not be_successful
     expect(response.status).to eq(401)
@@ -64,7 +58,7 @@ describe "User API" do
               password: 'ABc123',
               password_confirmation: ''}
 
-    post "/api/v1/users", headers: @header, params: params.to_json
+    post "/api/v1/users", headers: {"Content-Type": "application/json"}, params: params.to_json
 
     expect(response).to_not be_successful
     expect(response.status).to eq(401)
