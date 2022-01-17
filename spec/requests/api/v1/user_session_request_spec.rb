@@ -20,6 +20,8 @@ describe "Session Create" do
   end
 
   it "sad path - creates a session" do
+    User.create!(email: 'shiho@test.com', password: 'ABc123', password_confirmation: 'ABc123', api_key: '12345')
+    
     params = {email: '',
               password: 'ABc123'}
 
@@ -27,9 +29,12 @@ describe "Session Create" do
 
     expect(response).to_not be_successful
     expect(response.status).to eq(403)
+
   end
 
   it "sad path - creates a session" do
+    User.create!(email: 'shiho@test.com', password: 'ABc123', password_confirmation: 'ABc123', api_key: '12345')
+
     params = {email: 'shiho@test.com',
               password: ''}
 
