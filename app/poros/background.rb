@@ -3,7 +3,6 @@ class Background
               :type,
               :image
 
-
   def initialize(data)
     @id = nil
     @type = "image"
