@@ -5,4 +5,8 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true
 
   has_secure_password
+
+  def self.find_user(api_key)
+    self.where(api_key: api_key)
+  end
 end
