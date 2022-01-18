@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :users, only: :create
       resources :sessions, only: :create
       resources :road_trip, only: :create
+      resources :books, only: :index, :path => '/book-search'
     end
   end
 end
