@@ -64,7 +64,6 @@ RSpec.describe Forecast do
   let(:forecast) { Forecast.new(data) }
 
   it 'exists with attributes' do
-
     expect(forecast).to be_a(Forecast)
     expect(forecast.id).to eq(nil)
   end

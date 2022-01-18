@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "Background image API" do
   it "gets an image for a specific term" do
     search_term = 'Denver skyline'
-    get "/api/v1/backgrounds?query=#{search_term}"
+    get "/api/v1/backgrounds?location=#{search_term}"
 
     expect(response).to be_successful
     expect(response.status).to eq(200)
