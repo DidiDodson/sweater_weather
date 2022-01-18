@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Book do
+  it 'exists with attributes' do
    # let(:data) do
    @data = {
     "numFound": 652,
@@ -55,8 +56,8 @@ RSpec.describe Book do
                 "OL2843451A Universal Map"
             ]
         }]},
-  @destination = "Denver, CO",
-  @current_weather = {:datetime=>'Tue, 18 Jan 2022 18:19:49 +0000',
+        @destination = "Denver, CO",
+        @current_weather = {:datetime=>'Tue, 18 Jan 2022 18:19:49 +0000',
                       :sunrise=>'2022-01-18 07:17:46 -0700',
                       :sunset=>'2022-01-18 17:02:38 -0700',
                        :temperature=>45.86,
@@ -66,12 +67,10 @@ RSpec.describe Book do
                        :visibility=>10000,
                        :conditions=>"overcast clouds",
                        :icon=>"04d"},
-  @quantity = 5
-      # end
-  @book =  Book.new(@data.first, @destination, @current_weather, @quantity)
+                       @quantity = 5
 
-  it 'exists with attributes' do
-    #issue getting this test to pass. It's the setup, but not going to have time to fix it.
+    @book =  Book.new(@data.first, @destination, @current_weather, @quantity)
+
     expect(@book).to be_a(Book)
     expect(@book.books[0]).to have_key(:isbn)
     expect(@book.books[0]).to have_key(:title)
