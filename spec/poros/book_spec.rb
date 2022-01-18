@@ -1,19 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Book do
-  @destination = "Denver, CO",
-  @currrent_weather = {:datetime=>'Tue, 18 Jan 2022 18:19:49 +0000',
-                      :sunrise=>'2022-01-18 07:17:46 -0700',
-                      :sunset=>'2022-01-18 17:02:38 -0700',
-                       :temperature=>45.86,
-                       :feels_like=>45.86,
-                       :humidity=>36,
-                       :uvi=>1.15,
-                       :visibility=>10000,
-                       :conditions=>"overcast clouds",
-                       :icon=>"04d"},
- let(:data) do
-   {
+   # let(:data) do
+   @data = {
     "numFound": 652,
     "start": 0,
     "numFoundExact": true,
@@ -65,16 +54,26 @@ RSpec.describe Book do
             "author_facet": [
                 "OL2843451A Universal Map"
             ]
-        }]}
-      end
-  let(:book) { Book.new(data, @destination, @current_weather) }
+        }]},
+  @destination = "Denver, CO",
+  @current_weather = {:datetime=>'Tue, 18 Jan 2022 18:19:49 +0000',
+                      :sunrise=>'2022-01-18 07:17:46 -0700',
+                      :sunset=>'2022-01-18 17:02:38 -0700',
+                       :temperature=>45.86,
+                       :feels_like=>45.86,
+                       :humidity=>36,
+                       :uvi=>1.15,
+                       :visibility=>10000,
+                       :conditions=>"overcast clouds",
+                       :icon=>"04d"}
+      # end
+  @book =  Book.new(@data.first, @destination, @current_weather)
 
   it 'exists with attributes' do
-
-    #issue getting this test to pass. It's the setup, but not sure I have time to fix it.
-    expect(book).to be_a(Book)
-    expect(book.books[0]).to have_key(:isbn)
-    expect(book.books[0]).to have_key(:title)
-    expect(book.books[0]).to have_key(:publisher)
+    #issue getting this test to pass. It's the setup, but not going to have time to fix it.
+    expect(@book).to be_a(Book)
+    expect(@book.books[0]).to have_key(:isbn)
+    expect(@book.books[0]).to have_key(:title)
+    expect(@book.books[0]).to have_key(:publisher)
   end
 end
