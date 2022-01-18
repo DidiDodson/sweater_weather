@@ -26,6 +26,7 @@ RSpec.describe SearchFacade do
     search_term = 'Denver, CO'
 
     result = SearchFacade.find_books(search_term)
-    require "pry"; binding.pry
+
+    expect(result).to be_a(Book)
   end
 end

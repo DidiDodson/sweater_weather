@@ -19,8 +19,9 @@ class SearchFacade
 
     def find_books(location)
       result = BookService.get_books(location)
+      current_weather = SearchFacade.find_weather(location).current_weather
 
-      book = Book.new(result)
+      book = Book.new(result, location, current_weather)
     end
   end
 end
