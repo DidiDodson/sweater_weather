@@ -16,5 +16,11 @@ class SearchFacade
         Background.new(result)
       end
     end
+
+    def find_books(location)
+      result = BookService.get_books(location)
+
+      book = Book.new(result)
+    end
   end
 end

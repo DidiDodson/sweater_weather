@@ -21,4 +21,11 @@ RSpec.describe SearchFacade do
     expect(result.first.image).to have_key(:description)
     expect(result.first.image).to have_key(:credit)
   end
+
+  it 'gets books by location search' do
+    search_term = 'Denver, CO'
+
+    result = SearchFacade.find_books(search_term)
+    require "pry"; binding.pry
+  end
 end
