@@ -24,8 +24,9 @@ RSpec.describe SearchFacade do
 
   it 'gets books by location search' do
     search_term = 'Denver, CO'
+    quantity = 5
 
-    result = SearchFacade.find_books(search_term)
+    result = SearchFacade.find_books(search_term, quantity)
 
     expect(result).to be_a(Book)
   end
