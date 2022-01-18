@@ -17,7 +17,7 @@ class RoadTripFacade
         hours = time[:realTime] / 3600
         travel_time = time[:formattedTime]
 
-        if hours <= 23
+        if hours < 24
           lat = MapService.locations(params[:destination])[:latLng][:lat]
           long = MapService.locations(params[:destination])[:latLng][:lng]
           hourly_weather = WeatherService.get_weather(lat, long)[:hourly][hours]
@@ -31,7 +31,7 @@ class RoadTripFacade
               conditions: hourly_weather[:weather][0][:description]}
             }
           RoadTrip.new(roadtrip)
-        elsif hours > 23
+        elsif hours >= 24
           day = hours / 24
           lat = MapService.locations(params[:destination])[:latLng][:lat]
           long = MapService.locations(params[:destination])[:latLng][:lng]
