@@ -6,7 +6,8 @@ class Book
               :total_books_found,
               :books
 
-  def initialize(data, location, current_weather)
+  def initialize(data, location, current_weather, quantity)
+#ran out of time to finish the quantity portion. Tried using .take(quantity) in the @books block, but didn't quite finish
     @id = nil
     @type = "books"
     @total_books_found = data[:numFound]

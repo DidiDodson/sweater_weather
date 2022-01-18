@@ -65,9 +65,10 @@ RSpec.describe Book do
                        :uvi=>1.15,
                        :visibility=>10000,
                        :conditions=>"overcast clouds",
-                       :icon=>"04d"}
+                       :icon=>"04d"},
+  @quantity = 5
       # end
-  @book =  Book.new(@data.first, @destination, @current_weather)
+  @book =  Book.new(@data.first, @destination, @current_weather, @quantity)
 
   it 'exists with attributes' do
     #issue getting this test to pass. It's the setup, but not going to have time to fix it.
