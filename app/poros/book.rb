@@ -15,7 +15,7 @@ class Book
     @current_weather = {
       summary: current_weather[:conditions],
       temperature: current_weather[:temperature]}
-    @books = data[:docs].map do |book|
+    @books = data[:docs].take(quantity.to_i).map do |book|
       {isbn: book[:isbn],
       title: book[:title],
       publisher: book[:publisher]}
