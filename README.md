@@ -1,7 +1,7 @@
 # Sweater Weather
 
 ## Project Description
-Sweather Weather was developed as a school project by Didi Dodson at the Turing School of Software and Design in 2022. The premise of the project is that  users can use a notional frontend interface to find weather and map information to plan for a roadtrip. The backend portion of the project is presented in this repo, and is an API service that both consumes and exposes API endpoints for a notional frontend. The MapQuest API (route and directions), the OpenWeather API, and the Unsplash API are consumed, while user data is exposed.
+Sweather Weather was developed as a school project by Didi Dodson at the Turing School of Software and Design in 2022. The premise of the project is that  users can use a notional frontend interface to find weather and map information to plan for a roadtrip; they can also search for books about their destination. The backend portion of the project is presented in this repo, and is an API service that both consumes and exposes API endpoints for a notional frontend. The MapQuest API (route and directions), the OpenWeather API, the OpenLibrary API, and the Unsplash API are consumed, while user data is exposed.
 
 ### Endpoints
 #### Forecast Endpoint
