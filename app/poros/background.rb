@@ -1,18 +1,20 @@
 class Background
   attr_reader :id,
-              :type,
               :image
 
   def initialize(data)
     @id = nil
-    @type = "image"
-    @image = {
-      description: data[:description],
-      image_url: data[:urls][:regular],
+    @image = image_hash(data)
+  end
+
+  def image_hash(image_data)
+    {
+      description: image_data[:description],
+      image_url: image_data[:urls][:regular],
       credit: {
-        author: data[:user][:name],
-        portfolio_url: data[:user][:links][:portfolio],
-        profile_pic: data[:user][:profile_image][:large],
+        author: image_data[:user][:name],
+        portfolio_url: image_data[:user][:links][:portfolio],
+        profile_pic: image_data[:user][:profile_image][:large],
         hosted_on: "Unsplash"}
       }
   end
