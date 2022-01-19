@@ -11,7 +11,7 @@ describe "Background image API" do
     result = JSON.parse(response.body, symbolize_names: true)[:data]
 
     expect(result.first[:id]).to eq(nil)
-    expect(result.first[:type]).to eq('background')
+    expect(result.first[:type]).to eq('image')
     expect(result.first[:attributes][:image]).to have_key(:description)
     expect(result.first[:attributes][:image]).to_not have_key(:color)
     expect(result.first[:attributes][:image]).to have_key(:image_url)
