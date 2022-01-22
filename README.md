@@ -28,7 +28,7 @@ Sweather Weather was developed as a school project by Didi Dodson at the Turing 
 If you would like to make changes to this project, please contact the owner of this repository via GitHub.
 
 ## Setup
-This project was developed via Ruby 2.7.2, on Rails 5.2.6.
+This project was developed via Ruby 2.7.2, on Rails 5.2.6. It also incorporates CircleCI.
 
 To access the dev environment for this app please follow these steps:
 * Fork this repository
