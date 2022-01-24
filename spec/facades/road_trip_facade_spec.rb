@@ -30,8 +30,8 @@ RSpec.describe RoadTripFacade do
     }
     result = RoadTripFacade.trip_planner(params)
 
-    expect(result.travel_time).to eq("Impossible")
-    expect(result.weather_at_eta[:temperature]).to eq("")
-    expect(result.weather_at_eta[:conditions]).to eq("")
+    expect(result[:travel_time]).to eq("Impossible")
+    expect(result[:weather_at_eta][:temperature]).to eq("")
+    expect(result[:weather_at_eta][:conditions]).to eq("")
   end
 end

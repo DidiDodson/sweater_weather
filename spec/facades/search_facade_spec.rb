@@ -6,10 +6,8 @@ RSpec.describe SearchFacade do
 
     result = SearchFacade.find_weather(location)
 
-    expect(result).to be_a(Forecast)
-    expect(result.current_weather).to be_a(Hash)
-    expect(result.daily_weather.first).to have_key(:date)
-    expect(result.hourly_weather.first).to have_key(:conditions)
+    expect(result[:current]).to be_a(Hash)
+    expect(result[:hourly].first).to have_key(:temp)
   end
 
   it 'finds images by search term' do
@@ -17,9 +15,8 @@ RSpec.describe SearchFacade do
 
     result = SearchFacade.find_images(search_term)
 
-    expect(result.first).to be_a(Background)
-    expect(result.first.image).to have_key(:description)
-    expect(result.first.image).to have_key(:credit)
+    expect(result.first).to have_key(:description)
+    expect(result.first).to have_key(:urls)
   end
 
   it 'gets books by location search' do
@@ -28,6 +25,8 @@ RSpec.describe SearchFacade do
 
     result = SearchFacade.find_books(search_term, quantity)
 
-    expect(result).to be_a(Book)
+    expect(result).to have_key(:numFound)
+    expect(result[:docs]).to be_an(Array)
+    expect(result[:docs][0]).to have_key(:isbn)
   end
 end
