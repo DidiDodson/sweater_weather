@@ -9,7 +9,7 @@ describe "Book API" do
     expect(response).to be_successful
     expect(response.status).to eq(200)
 
-    result = JSON.parse(response.body, symbolize_names: true)[:data]
+    result = JSON.parse(response.body, symbolize_names: true)
 
     expect(result[:id]).to eq(nil)
     expect(result[:type]).to eq('books')

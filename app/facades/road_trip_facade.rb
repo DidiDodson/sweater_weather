@@ -25,7 +25,7 @@ class RoadTripFacade
           temperature: "",
           conditions: ""}
         }
-      RoadTrip.new(roadtrip)
+      # RoadTrip.new(roadtrip)
     end
 
     def trip_less_than_24_hours(query_params, hours, travel_time)

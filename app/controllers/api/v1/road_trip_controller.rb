@@ -5,8 +5,8 @@ class Api::V1::RoadTripController < ApplicationController
       render json: {errors: {details: "Incorrect API Key."}}, status: 401
     else
       roadtrip = RoadTripFacade.trip_planner(params)
-
-      render json: RoadTripSerializer.new(roadtrip)
+      
+      render json: RoadTripSerializer.trip(roadtrip)
     end
   end
 end
